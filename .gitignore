@@ -1,0 +1,16 @@
+node_modules/
+dist/
+.env
+.env.*
+!.env.example
+*.backup
+*.dump
+*.sql.bak
+*.toc.txt
+backups/
+logs/
+*.log
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

@@ -1,0 +1,1264 @@
+*{box-sizing:border-box}body{margin:0;font-family:Inter,system-ui,sans-serif;background:#f5f5f4;color:#292524}button,input,select{font:inherit}button{cursor:pointer}.login{min-height:100vh;display:grid;place-items:center;background:linear-gradient(135deg,#1c1917,#4a2f21);padding:20px}.login form{width:min(420px,100%);background:#fff;border-radius:24px;padding:30px;display:grid;gap:12px}.logo{width:64px;height:64px;border-radius:18px;background:#27180f;color:#fff;display:grid;place-items:center;margin:auto;font-weight:800;font-size:24px}.login h1,.login p{text-align:center;margin:0}.login p{color:#78716c;margin-bottom:14px}.login input,input,select{padding:12px 13px;border:1px solid #d6d3d1;border-radius:12px;background:#fff}.login button,.primary{padding:13px;border:0;border-radius:12px;background:#27180f;color:#fff;font-weight:700}.err{background:#fee2e2;color:#991b1b;padding:10px;border-radius:10px}header{min-height:68px;background:#1c1917;color:#fff;display:flex;justify-content:space-between;align-items:center;padding:12px 20px;position:sticky;top:0;z-index:9}header b,header small{display:block}header small{color:#d6d3d1}header nav{display:flex;gap:14px;align-items:center}header a,header button{color:#fff;background:none;border:0;text-decoration:none;font-weight:700}main{max-width:1440px;margin:auto;padding:20px}.title{display:flex;justify-content:space-between;align-items:end;gap:12px;margin-bottom:18px}.title h2{margin:0}.title span{color:#78716c}.legend{display:flex;align-items:center;gap:7px;color:#57534e}.dot{width:10px;height:10px;border-radius:50%;display:inline-block}.free-dot{background:#15803d}.busy-dot{background:#b91c1c}.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:14px}.mesa{border:0;color:#fff;border-radius:18px;min-height:125px;padding:16px;display:flex;flex-direction:column;justify-content:space-between;text-align:left;box-shadow:0 7px 20px #0001}.mesa b{font-size:20px}.mesa strong{font-size:22px}.livre{background:#15803d}.ocupada{background:#b91c1c}.empty,.panel{background:#fff;border:1px solid #e7e5e4;border-radius:18px;padding:22px}.cats{display:flex;gap:8px;overflow:auto;margin-bottom:16px}.cats button{white-space:nowrap;border:1px solid #d6d3d1;background:#fff;padding:9px 13px;border-radius:999px}.cats .sel{background:#27180f;color:#fff}.layout{display:grid;grid-template-columns:1fr 380px;gap:20px}.products{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:12px}.products button{min-height:108px;background:#fff;border:1px solid #e7e5e4;border-radius:16px;padding:14px;display:flex;flex-direction:column;justify-content:space-between;text-align:left}.products span{color:#8b5e3c;font-weight:800}.products small{color:#78716c}aside{background:#fff;border:1px solid #e7e5e4;border-radius:18px;padding:18px;position:sticky;top:88px}.item{display:flex;justify-content:space-between;gap:10px;padding:11px 0;border-bottom:1px solid #eee}.item small,.item em{display:block;color:#78716c;font-size:12px;font-style:normal;margin-top:3px}.sum{display:flex;justify-content:space-between;padding:18px 0;font-size:20px}.back{border:0;background:none;padding:0 0 10px;color:#78716c}.live-total{background:#fff;border:1px solid #e7e5e4;border-radius:14px;padding:10px 14px;text-align:right}.live-total small{display:block;color:#78716c}.live-total b{font-size:24px}.danger{background:#991b1b;color:#fff;border:0;border-radius:12px;padding:12px;font-weight:800}.full{width:100%}.danger-outline{border:1px solid #fecaca;color:#991b1b;background:#fff;border-radius:10px;padding:8px 10px}.center{min-height:100vh;display:grid;place-items:center}.muted{color:#78716c}label{font-size:13px;font-weight:700;color:#57534e}.notice{background:#ecfdf5;border:1px solid #a7f3d0;color:#166534;padding:12px 14px;border-radius:12px;margin-bottom:16px}.admin-tabs{display:flex;gap:8px;overflow:auto;margin-bottom:18px}.admin-tabs button{border:1px solid #d6d3d1;background:#fff;border-radius:12px;padding:10px 14px;white-space:nowrap;font-weight:700}.admin-tabs .active{background:#27180f;color:#fff;border-color:#27180f}.admin-two{display:grid;grid-template-columns:minmax(300px,420px) 1fr;gap:18px}.menu-admin-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}.span-2{grid-column:1/-1}.panel h3{margin-top:0}.admin-form{display:grid;gap:10px}.management-list,.occupied-list{display:grid;gap:8px}.manage-row,.occupied-row{display:flex;justify-content:space-between;align-items:center;gap:12px;border:1px solid #e7e5e4;border-radius:12px;padding:12px;text-decoration:none;color:inherit}.manage-row small,.occupied-row small{display:block;color:#78716c;margin-top:3px}.occupied-row strong{font-size:20px}.row-actions{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end}.row-actions button,.manage-row>button,.compact-list button{border:1px solid #d6d3d1;background:#fff;border-radius:10px;padding:8px 10px}.compact-list{display:grid;gap:6px;margin-top:18px}.compact-list>div{display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px solid #eee}.secondary{padding:11px 13px;border:1px solid #d6d3d1;border-radius:12px;background:#fff;color:#292524;font-weight:700}.modal-backdrop{position:fixed;inset:0;background:#0008;display:grid;place-items:center;padding:18px;z-index:99}.modal{width:min(430px,100%);background:#fff;border-radius:20px;padding:22px;display:grid;gap:12px;box-shadow:0 24px 80px #0005}.modal h3,.modal p{margin:0}.modal-actions{display:flex;justify-content:flex-end;gap:10px;margin-top:8px}.check-row{display:flex;align-items:center;gap:8px}.check-row input{width:auto}.products-admin{max-height:580px;overflow:auto}
+@media(max-width:900px){.layout{grid-template-columns:1fr}aside{position:static}.admin-two,.menu-admin-grid{grid-template-columns:1fr}.span-2{grid-column:auto}}
+@media(max-width:560px){main{padding:14px}.products{grid-template-columns:1fr 1fr}.title{align-items:flex-start}.legend{display:none}header{align-items:flex-start}header nav{gap:8px;flex-wrap:wrap;justify-content:flex-end}header nav a,header nav button{font-size:13px}.grid{grid-template-columns:1fr 1fr}.mesa{min-height:112px}.row-actions{width:100%;justify-content:flex-start}.manage-row{align-items:flex-start;flex-wrap:wrap}}
+.gold-tab{background:#b8860b!important;color:#fff!important;border-color:#b8860b!important}
+.finalized-panel{border-color:#d4af37;background:linear-gradient(180deg,#fffdf3,#fff)}
+.finalized-heading{display:flex;justify-content:space-between;gap:16px;align-items:center;margin-bottom:14px}
+.finalized-heading h3,.finalized-heading p{margin:0}.finalized-heading p{color:#78716c;margin-top:4px}.finalized-heading>strong{color:#8a6508}
+.finalized-list{display:grid;gap:10px}.finalized-row{display:grid;grid-template-columns:1fr 1.4fr 1.5fr .8fr;gap:14px;align-items:center;padding:14px;border:1px solid #d4af37;border-radius:14px;background:#fffaf0}
+.finalized-row>div{min-width:0}.finalized-row b,.finalized-row span{display:block}.finalized-row span,.finalized-row small{color:#78716c;font-size:12px}.finalized-row>div:first-child>b{font-size:18px;color:#7a5800}.finalized-total{text-align:right}.finalized-total strong{font-size:21px;color:#8a6508}
+.product-modal textarea{font:inherit;padding:12px 13px;border:1px solid #d6d3d1;border-radius:12px;resize:vertical;min-height:84px}.qty-control{display:grid;grid-template-columns:48px 1fr 48px;gap:8px;align-items:center}.qty-control button{height:46px;border:1px solid #d6d3d1;background:#fff;border-radius:12px;font-size:24px;font-weight:800}.qty-control input{text-align:center;font-size:18px;font-weight:800;min-width:0}
+@media(max-width:760px){.finalized-row{grid-template-columns:1fr 1fr}.finalized-total{text-align:left}.finalized-heading{align-items:flex-start;flex-direction:column}}
+
+.primary-soft{border:1px solid #d6c3a6!important;background:#fffaf0!important;color:#6f4b17!important;font-weight:800}
+.product-edit-modal{width:min(560px,100%)}.variant-editor{display:grid;gap:10px;border-top:1px solid #eee;padding-top:12px}.variant-editor h4{margin:0}.variant-edit-row{display:grid;grid-template-columns:1fr 130px;gap:12px;align-items:center;border:1px solid #e7e5e4;border-radius:12px;padding:10px}.small-check{font-size:12px;margin-top:5px}.delete-zone{border-top:1px solid #fee2e2;padding-top:14px;display:flex;align-items:center;gap:12px;flex-wrap:wrap}.delete-zone small{color:#78716c}.printer-panel{border-color:#d6d3d1}.printer-head{display:flex;justify-content:space-between;gap:18px;align-items:flex-start}.printer-head h3,.printer-head p{margin-top:0}.printer-status{display:flex;align-items:center;gap:8px;border:1px solid #d6d3d1;border-radius:999px;padding:8px 11px;font-weight:700;white-space:nowrap}.status-dot{width:10px;height:10px;border-radius:50%;background:#a8a29e}.printer-status.connected .status-dot{background:#15803d}.printer-card{margin-top:16px;border:1px solid #e7e5e4;border-radius:16px;padding:16px;display:flex;justify-content:space-between;align-items:center;gap:16px}.printer-card small{display:block;color:#78716c;margin-top:4px}.printer-note{margin-top:14px;background:#fff7ed;border:1px solid #fed7aa;border-radius:14px;padding:14px}.printer-note p{margin:5px 0 0;color:#7c2d12}
+@media(max-width:620px){.variant-edit-row{grid-template-columns:1fr}.printer-head,.printer-card{flex-direction:column;align-items:stretch}.printer-status{width:max-content}}
+
+.close-summary-modal{width:min(760px,100%);max-height:88vh;overflow:auto}.close-summary-head{display:flex;justify-content:space-between;gap:16px;align-items:flex-start;border-bottom:1px solid #e7e5e4;padding-bottom:14px}.close-summary-head h3,.close-summary-head p{margin:0}.close-summary-head p{color:#78716c;margin-top:4px}.close-summary-head>b{font-size:26px;color:#7a5800}.receipt-preview{display:grid;gap:0;border:1px solid #e7e5e4;border-radius:14px;overflow:hidden}.receipt-table-head,.receipt-row{display:grid;grid-template-columns:minmax(190px,1fr) 64px 105px 110px;gap:10px;align-items:center;padding:11px 12px}.receipt-table-head{background:#fafaf9;font-size:12px;color:#78716c;font-weight:800;text-transform:uppercase}.receipt-row{border-top:1px solid #eee}.receipt-row:first-of-type{border-top:0}.receipt-row>div{min-width:0}.receipt-row small,.receipt-row em{display:block;color:#78716c;font-size:12px;font-style:normal;margin-top:3px}.receipt-row>span,.receipt-row>strong{text-align:right}.receipt-grand-total{display:flex;justify-content:space-between;align-items:center;font-size:21px;padding:4px 2px}.receipt-grand-total b{font-size:28px;color:#7a5800}.summary-note{font-size:13px}.close-actions{flex-wrap:wrap}.close-actions .primary{min-width:170px}
+@media(max-width:650px){.close-summary-head{flex-direction:column}.receipt-table-head{display:none}.receipt-row{grid-template-columns:1fr 1fr;gap:6px 12px}.receipt-row>div{grid-column:1/-1}.receipt-row>span,.receipt-row>strong{text-align:left}.receipt-row>span:nth-of-type(1)::before{content:'Qtd.: ';color:#78716c}.receipt-row>span:nth-of-type(2)::before{content:'Unit.: ';color:#78716c}.receipt-row>strong::before{content:'Total: ';color:#78716c}.close-actions{display:grid;grid-template-columns:1fr}.close-actions button{width:100%}}
+
+.login-brand{display:flex;justify-content:center;margin:0 auto 16px}.login-logo{display:block;width:min(290px,82vw);max-height:155px;object-fit:cover;object-position:center;border-radius:18px;box-shadow:0 10px 30px rgba(0,0,0,.28)}.login-copyright{text-align:center;margin-top:22px;font-size:.78rem;line-height:1.4;opacity:.72}@media(max-width:520px){.login-logo{width:min(250px,78vw);max-height:135px}.login-copyright{font-size:.72rem}}
+
+/* Base visual reutilizável PericlesDev */
+:root{color-scheme:dark;--ep-bg:#080808;--ep-panel:#111;--ep-line:#3a2a12;--ep-gold:#f2a000;--ep-text:#f7f7f7;--ep-muted:#aaa}
+body{background:radial-gradient(circle at top,#1b1207 0,#090909 34%,#050505 100%);color:var(--ep-text)}
+.app-shell,.page,.admin-page,.order-page{background:transparent}
+header,.topbar,.navbar,.admin-tabs,.card,.panel,.table-card,.product-card,.modal-content{background:linear-gradient(180deg,#151515,#0d0d0d);border-color:var(--ep-line)!important}
+button,.btn,.primary{border-radius:10px}button.primary,.btn-primary{background:linear-gradient(135deg,#ffb000,#e77d00);color:#111;font-weight:800}
+.login-logo{width:min(420px,88vw);max-height:190px;object-fit:contain;background:#fff;border-radius:16px;padding:8px}
+.app-brand-logo{max-width:190px;max-height:58px;object-fit:contain}
+.pericles-signature{text-align:center;padding:12px 8px;color:#bbb;font-size:.78rem}.pericles-signature strong{color:var(--ep-gold)}
+
+
+/* v1.2 — layout alinhado ao mockup */
+.login{
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:14px;
+  padding:24px;
+  background:
+    radial-gradient(circle at 50% 25%,rgba(237,137,0,.16),transparent 28%),
+    linear-gradient(180deg,#090909 0%,#050505 100%);
+}
+.login form{
+  width:min(560px,94vw);
+  margin:0 auto;
+  padding:28px 30px 30px;
+  border-radius:22px;
+  background:linear-gradient(180deg,#151515,#0c0c0c);
+  border:1px solid #6f450e;
+  box-shadow:0 24px 70px rgba(0,0,0,.48);
+  color:#fff;
+}
+.login-brand{
+  width:100%;
+  margin:0 auto 14px;
+  display:flex;
+  justify-content:center;
+}
+.login-logo{
+  display:block;
+  width:100%;
+  height:auto;
+  max-height:none;
+  object-fit:contain;
+  background:#fff;
+  border-radius:14px;
+  padding:8px;
+  box-shadow:none;
+}
+.login-subtitle{
+  margin:2px 0 16px!important;
+  color:#ddd!important;
+  text-align:center;
+}
+.login label{color:#f3f3f3}
+.login input{
+  width:100%;
+  background:#fff!important;
+  color:#111!important;
+  border-color:#d6d3d1!important;
+}
+.login input::placeholder{color:#6b7280!important}
+.login button{
+  margin-top:5px;
+  background:linear-gradient(135deg,#ffb000,#e57c00);
+  color:#111;
+  font-weight:900;
+}
+.login-copyright{
+  width:min(560px,94vw);
+  margin:0 auto;
+  color:#ccc;
+  text-align:center;
+}
+
+.app-header{
+  min-height:82px;
+  background:linear-gradient(180deg,#111,#080808);
+  border-bottom:1px solid #4c3211;
+  padding:9px 20px;
+}
+.app-brand{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  min-width:0;
+}
+.app-brand-logo{
+  display:block;
+  width:190px;
+  max-width:36vw;
+  height:58px;
+  object-fit:contain;
+  object-position:left center;
+  background:#fff;
+  border-radius:9px;
+  padding:3px 6px;
+}
+.app-user{
+  min-width:0;
+}
+.app-user small{
+  color:#ddd;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+.app-header nav a,.app-header nav button{
+  color:#fff;
+}
+.app-header nav a:hover,.app-header nav button:hover{
+  color:#f2a000;
+}
+
+/* Todo conteúdo em superfície branca deve usar texto escuro. */
+input,
+select,
+textarea,
+.cats button,
+.products button,
+.live-total,
+.empty,
+.secondary,
+.row-actions button,
+.manage-row>button,
+.compact-list button,
+.qty-control button,
+.finalized-panel,
+.finalized-row,
+.receipt-preview,
+.receipt-table-head,
+.receipt-row,
+.printer-note,
+.printer-card,
+.danger-outline{
+  color:#111!important;
+}
+input::placeholder,textarea::placeholder{color:#6b7280!important}
+select option{color:#111;background:#fff}
+.cats .sel{
+  background:#27180f!important;
+  color:#fff!important;
+}
+.products button b,
+.products button span,
+.products button small,
+.live-total small,
+.live-total b,
+.receipt-preview *,
+.finalized-panel *,
+.finalized-row *{
+  color:inherit;
+}
+.finalized-row>div:first-child>b,
+.finalized-total strong,
+.receipt-grand-total b{
+  color:#7a5800!important;
+}
+
+/* Preserve white text on deliberately dark/gold/red controls. */
+.primary,.danger,.gold-tab,.mesa,.admin-tabs .active{
+  color:#fff!important;
+}
+.primary{
+  color:#111!important;
+}
+
+@media(max-width:640px){
+  .login{padding:16px}
+  .login form{width:min(500px,96vw);padding:18px}
+  .login-copyright{width:min(500px,96vw)}
+  .app-header{align-items:center;gap:10px;flex-direction:column}
+  .app-brand{width:100%;justify-content:center;flex-direction:column;gap:5px}
+  .app-brand-logo{width:min(260px,84vw);max-width:none;height:auto;max-height:74px;object-position:center}
+  .app-user small{text-align:center;display:block}
+  .app-header nav{justify-content:center}
+}
+
+
+/* v1.3 — contraste completo para áreas claras */
+
+/* Formulários e controles claros */
+input,
+select,
+textarea,
+option,
+.form-card,
+.form-row,
+.admin-form,
+.modal-content input,
+.modal-content select,
+.modal-content textarea,
+.product-modal input,
+.product-modal select,
+.product-modal textarea {
+  color:#111 !important;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color:#6b7280 !important;
+}
+
+/* Caixas/listas claras dentro das páginas */
+.white-card,
+.light-card,
+.list-card,
+.summary-card,
+.order-summary,
+.order-items,
+.items-list,
+.item-row,
+.order-item,
+.order-total,
+.total-box,
+.total-row,
+.receipt-preview,
+.receipt-row,
+.receipt-table-head,
+.manage-row,
+.compact-list,
+.compact-list > div,
+.user-row,
+.product-row,
+.category-row,
+.table-admin-row,
+.finalized-row,
+.finalized-panel,
+.printer-card,
+.printer-note {
+  color:#111 !important;
+}
+
+/* Comanda: itens + total */
+.order-items *,
+.items-list *,
+.item-row *,
+.order-item *,
+.order-total *,
+.total-box *,
+.total-row *,
+.receipt-preview *,
+.receipt-row *,
+.receipt-table-head * {
+  color:#111 !important;
+}
+
+/* Administração */
+.admin-page input,
+.admin-page select,
+.admin-page textarea,
+.admin-page .manage-row,
+.admin-page .manage-row *,
+.admin-page .compact-list,
+.admin-page .compact-list *,
+.admin-page .user-row,
+.admin-page .user-row *,
+.admin-page .product-row,
+.admin-page .product-row *,
+.admin-page .category-row,
+.admin-page .category-row *,
+.admin-page .table-admin-row,
+.admin-page .table-admin-row *,
+.admin-page .modal-content,
+.admin-page .modal-content * {
+  color:#111 !important;
+}
+
+/* Editar item */
+.product-modal,
+.product-modal *,
+.edit-product-modal,
+.edit-product-modal *,
+.modal-content.light,
+.modal-content.light * {
+  color:#111 !important;
+}
+
+/* Garantir fundo branco/claro com texto escuro */
+input,
+select,
+textarea,
+.form-card,
+.admin-form,
+.order-items,
+.items-list,
+.item-row,
+.order-item,
+.order-total,
+.total-box,
+.summary-card,
+.manage-row,
+.compact-list,
+.user-row,
+.product-row,
+.category-row,
+.table-admin-row,
+.product-modal,
+.modal-content.light {
+  background-color:#fff;
+}
+
+/* Botões claros */
+.secondary,
+.row-actions button,
+.manage-row > button,
+.compact-list button,
+.qty-control button,
+.danger-outline {
+  color:#111 !important;
+}
+
+/* Botões e áreas deliberadamente escuras/douradas/vermelhas continuam com texto apropriado */
+.primary,
+.btn-primary {
+  color:#111 !important;
+}
+.danger,
+.gold-tab,
+.admin-tabs .active,
+.mesa.occupied,
+.mesa.disabled,
+button.danger {
+  color:#fff !important;
+}
+
+/* Modais: títulos e labels escuros quando modal for claro */
+.modal-content h1,
+.modal-content h2,
+.modal-content h3,
+.modal-content h4,
+.modal-content label,
+.product-modal h1,
+.product-modal h2,
+.product-modal h3,
+.product-modal label {
+  color:#111 !important;
+}
+
+/* Tabela/resumo da comanda */
+.order-summary table,
+.order-summary th,
+.order-summary td,
+.receipt-preview table,
+.receipt-preview th,
+.receipt-preview td {
+  color:#111 !important;
+}
+
+/* Admin finalizadas mantém dourado nos destaques */
+.finalized-total strong,
+.receipt-grand-total b {
+  color:#7a5800 !important;
+}
+
+
+/* =========================================================
+   v1.4 — correção visual específica das telas reais
+   ========================================================= */
+
+/* COMANDA — o cartão branco da direita deve ser totalmente legível */
+.layout > aside {
+  background:#ffffff !important;
+  color:#111111 !important;
+  border:1px solid #dedede !important;
+  box-shadow:0 10px 28px rgba(0,0,0,.18);
+}
+.layout > aside h3,
+.layout > aside .item,
+.layout > aside .item span,
+.layout > aside .item b,
+.layout > aside .item strong,
+.layout > aside .sum,
+.layout > aside .sum span,
+.layout > aside .sum b {
+  color:#111111 !important;
+}
+.layout > aside .item small,
+.layout > aside .item em,
+.layout > aside .muted {
+  color:#666666 !important;
+}
+.layout > aside .item {
+  border-bottom:1px solid #e5e5e5 !important;
+}
+.layout > aside .sum {
+  border-top:0;
+  font-weight:700;
+}
+.layout > aside .sum b {
+  font-size:22px;
+}
+.layout > aside .danger {
+  color:#ffffff !important;
+  background:#a91f1f !important;
+}
+.layout > aside .danger:disabled {
+  color:#f4f4f4 !important;
+  background:#8c3434 !important;
+  opacity:.72;
+}
+
+/* Total consumido — caixa clara */
+.live-total,
+.live-total small,
+.live-total b {
+  color:#111111 !important;
+}
+.live-total small {
+  color:#666666 !important;
+}
+
+/* Produtos do cardápio — cartões claros */
+.products button {
+  color:#111111 !important;
+}
+.products button b {
+  color:#111111 !important;
+}
+.products button span {
+  color:#7a4b15 !important;
+}
+.products button small {
+  color:#666666 !important;
+}
+
+/* CATEGORIAS DO CARDÁPIO — clara = preto; selecionada = branco */
+.cats button {
+  color:#111111 !important;
+}
+.cats button.sel {
+  color:#ffffff !important;
+  background:#2c1a0f !important;
+}
+
+/* PAINEL ADMIN — remover a faixa branca/abas brancas */
+.admin-tabs {
+  display:flex;
+  gap:10px;
+  padding:8px !important;
+  margin-bottom:18px;
+  overflow-x:auto;
+  scrollbar-width:none;
+  background:#0e0e0e !important;
+  border:1px solid #33240f !important;
+  border-radius:15px;
+  box-shadow:0 8px 24px rgba(0,0,0,.16);
+}
+.admin-tabs::-webkit-scrollbar {
+  display:none;
+}
+.admin-tabs button {
+  flex:0 0 auto;
+  border:1px solid #5c4218 !important;
+  background:#171717 !important;
+  color:#f4f4f4 !important;
+  border-radius:11px !important;
+  padding:10px 15px !important;
+  white-space:nowrap;
+  font-weight:750;
+  transition:background .16s ease,border-color .16s ease,transform .16s ease;
+}
+.admin-tabs button:hover {
+  background:#24190d !important;
+  border-color:#a76c08 !important;
+}
+.admin-tabs button.active {
+  background:linear-gradient(135deg,#6b3b0b,#9d5806) !important;
+  border-color:#d38b0b !important;
+  color:#ffffff !important;
+  box-shadow:0 4px 14px rgba(211,139,11,.2);
+}
+.admin-tabs button.gold-tab,
+.admin-tabs button.active.gold-tab {
+  background:linear-gradient(135deg,#8b6208,#c89310) !important;
+  border-color:#e2b638 !important;
+  color:#ffffff !important;
+}
+
+/* PAINEL ADMIN — caixas brancas: texto preto de verdade */
+.panel .compact-list > div,
+.panel .manage-row,
+.panel .occupied-row,
+.panel .finalized-row,
+.panel .printer-card,
+.panel .printer-note {
+  color:#111111 !important;
+}
+.panel .compact-list > div *,
+.panel .manage-row *,
+.panel .occupied-row *,
+.panel .finalized-row *,
+.panel .printer-card *,
+.panel .printer-note * {
+  color:inherit;
+}
+
+/* textos secundários dentro das caixas claras */
+.panel .manage-row small,
+.panel .occupied-row small,
+.panel .compact-list small,
+.panel .printer-card small,
+.panel .printer-note small,
+.panel .finalized-row span,
+.panel .finalized-row small {
+  color:#666666 !important;
+}
+
+/* botões brancos dentro das listas */
+.panel .compact-list button,
+.panel .manage-row button,
+.panel .row-actions button {
+  background:#ffffff !important;
+  color:#111111 !important;
+  border:1px solid #d5d5d5 !important;
+}
+.panel .compact-list button:hover,
+.panel .manage-row button:hover,
+.panel .row-actions button:hover {
+  background:#f3f3f3 !important;
+}
+
+/* manter botões de ação coloridos com contraste correto */
+.panel button.primary,
+.panel .row-actions button.primary,
+.panel .row-actions button.primary-soft {
+  background:linear-gradient(135deg,#ffb000,#e57c00) !important;
+  color:#111111 !important;
+  border-color:#e89a00 !important;
+}
+.panel button.danger,
+.panel .row-actions button.danger {
+  background:#a91f1f !important;
+  color:#ffffff !important;
+  border-color:#a91f1f !important;
+}
+
+/* FORMULÁRIOS DO ADMIN */
+.panel .admin-form input,
+.panel .admin-form select,
+.panel .admin-form textarea {
+  background:#ffffff !important;
+  color:#111111 !important;
+  border:1px solid #d6d6d6 !important;
+}
+.panel .admin-form input::placeholder,
+.panel .admin-form textarea::placeholder {
+  color:#727272 !important;
+}
+.panel .admin-form label {
+  color:#f3f3f3 !important;
+}
+
+/* MODAIS — Editar item / usuários / quantidade */
+.modal,
+.product-modal {
+  background:#ffffff !important;
+  color:#111111 !important;
+}
+.modal h3,
+.modal h4,
+.modal p,
+.modal label,
+.product-modal h3,
+.product-modal label {
+  color:#111111 !important;
+}
+.modal input,
+.modal select,
+.modal textarea,
+.product-modal input,
+.product-modal select,
+.product-modal textarea {
+  background:#ffffff !important;
+  color:#111111 !important;
+  border:1px solid #d4d4d4 !important;
+}
+.modal small,
+.modal .muted,
+.product-modal small,
+.product-modal .muted {
+  color:#666666 !important;
+}
+.modal .modal-actions .secondary,
+.product-modal .modal-actions .secondary {
+  background:#f5f5f5 !important;
+  color:#111111 !important;
+  border-color:#d5d5d5 !important;
+}
+.modal .modal-actions .primary,
+.product-modal .modal-actions .primary {
+  color:#111111 !important;
+}
+
+/* Não deixar foco/seleção gerar "bloco branco" feio nas abas */
+.admin-tabs button:focus,
+.admin-tabs button:focus-visible {
+  outline:2px solid #e0a11b;
+  outline-offset:2px;
+}
+
+/* pequenas melhorias no uso diário */
+.panel .compact-list > div,
+.panel .manage-row {
+  transition:background .14s ease,border-color .14s ease;
+}
+.panel .compact-list > div:hover,
+.panel .manage-row:hover {
+  background:#fafafa !important;
+  border-color:#d7b46a !important;
+}
+
+@media(max-width:640px){
+  .admin-tabs{
+    gap:7px;
+    padding:7px !important;
+  }
+  .admin-tabs button{
+    padding:9px 12px !important;
+    font-size:13px;
+  }
+  .layout > aside{
+    padding:16px;
+  }
+}
+
+
+/* =========================================================
+   v1.5 — padronização visual do Painel Admin
+   ========================================================= */
+
+/* MESAS EM USO — vermelho no mesmo padrão visual das finalizadas */
+.occupied-row,
+.panel .occupied-row,
+.admin-page .occupied-row {
+  background:linear-gradient(135deg,#7f1d1d,#b91c1c) !important;
+  border:1px solid #ef4444 !important;
+  color:#ffffff !important;
+  border-radius:12px;
+  padding:13px 15px;
+  box-shadow:0 5px 15px rgba(185,28,28,.18);
+}
+.occupied-row *,
+.panel .occupied-row *,
+.admin-page .occupied-row * {
+  color:#ffffff !important;
+}
+.occupied-row strong,
+.occupied-row b {
+  color:#ffffff !important;
+}
+
+/* Títulos de seção do admin */
+.admin-section-title {
+  color:#f4f4f4 !important;
+  margin-bottom:12px;
+}
+
+/* LABELS dos formulários — texto preto quando dentro da área clara */
+.panel .admin-form label,
+.panel .form-card label,
+.admin-page .admin-form label,
+.admin-page .form-card label {
+  color:#111111 !important;
+  font-weight:700;
+}
+
+/* CAMPOS — brancos e separados visualmente dos botões */
+.admin-white-input,
+.panel .admin-form input,
+.panel .admin-form select,
+.panel .admin-form textarea,
+.admin-page .admin-form input,
+.admin-page .admin-form select,
+.admin-page .admin-form textarea {
+  background:#ffffff !important;
+  color:#111111 !important;
+  border:1px solid #d7d7d7 !important;
+  border-radius:10px !important;
+  min-height:44px;
+  padding:10px 12px;
+  box-shadow:inset 0 1px 2px rgba(0,0,0,.04);
+}
+.admin-white-input::placeholder,
+.panel .admin-form input::placeholder,
+.panel .admin-form textarea::placeholder,
+.admin-page .admin-form input::placeholder,
+.admin-page .admin-form textarea::placeholder {
+  color:#6b7280 !important;
+}
+
+/* Separação clara entre campo e botão */
+.panel .admin-form,
+.admin-page .admin-form {
+  display:grid;
+  gap:12px;
+}
+.panel .admin-form button.primary,
+.admin-page .admin-form button.primary {
+  margin-top:2px;
+}
+
+/* MESAS CADASTRADAS + CATEGORIAS + PRODUTOS + USUÁRIOS:
+   mesmo padrão de lista organizada */
+.panel .compact-list,
+.panel .manage-list,
+.admin-page .compact-list,
+.admin-page .manage-list {
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+}
+.panel .compact-list > div,
+.panel .manage-row,
+.admin-page .compact-list > div,
+.admin-page .manage-row,
+.admin-page .category-row,
+.admin-page .product-row,
+.admin-page .user-row,
+.admin-page .table-admin-row {
+  background:#ffffff !important;
+  border:1px solid #dfdfdf !important;
+  border-radius:11px !important;
+  padding:11px 12px !important;
+  color:#111111 !important;
+  box-shadow:0 2px 8px rgba(0,0,0,.05);
+}
+.panel .compact-list > div *,
+.panel .manage-row *,
+.admin-page .compact-list > div *,
+.admin-page .manage-row *,
+.admin-page .category-row *,
+.admin-page .product-row *,
+.admin-page .user-row *,
+.admin-page .table-admin-row * {
+  color:inherit;
+}
+
+/* Botões dentro das listas: discretos e separados */
+.panel .compact-list button,
+.panel .manage-row button,
+.admin-page .compact-list button,
+.admin-page .manage-row button {
+  background:#ffffff !important;
+  color:#111111 !important;
+  border:1px solid #d5d5d5 !important;
+  border-radius:9px !important;
+  padding:8px 12px !important;
+}
+.panel .compact-list button:hover,
+.panel .manage-row button:hover,
+.admin-page .compact-list button:hover,
+.admin-page .manage-row button:hover {
+  background:#f5f5f5 !important;
+}
+
+/* Manter botões principais na cor atual */
+.panel .admin-form button.primary,
+.admin-page .admin-form button.primary {
+  background:linear-gradient(135deg,#ffb000,#e57c00) !important;
+  color:#111111 !important;
+  border-color:#e89a00 !important;
+  font-weight:800;
+}
+
+/* Form cards claros: Nome/Número/Exemplo ficam pretos */
+.panel .form-card,
+.admin-page .form-card,
+.panel .admin-form,
+.admin-page .admin-form {
+  background:#ffffff !important;
+  color:#111111 !important;
+  border-radius:12px;
+}
+.panel .form-card h3,
+.panel .admin-form h3,
+.admin-page .form-card h3,
+.admin-page .admin-form h3,
+.panel .form-card strong,
+.panel .admin-form strong {
+  color:#111111 !important;
+}
+
+/* Nova categoria / Novo produto / Novo usuário */
+.panel .admin-form input,
+.panel .admin-form select,
+.panel .admin-form textarea,
+.admin-page .admin-form input,
+.admin-page .admin-form select,
+.admin-page .admin-form textarea {
+  width:100%;
+}
+
+/* Em telas pequenas, mantém espaçamento agradável */
+@media(max-width:640px){
+  .occupied-row,
+  .panel .manage-row,
+  .panel .compact-list > div {
+    padding:10px 11px !important;
+  }
+  .panel .admin-form,
+  .admin-page .admin-form {
+    gap:10px;
+  }
+}
+
+
+/* v1.6 — listas administrativas no mesmo padrão visual de Usuários */
+.admin-page .compact-list,
+.admin-page .manage-list,
+.panel .compact-list,
+.panel .manage-list {
+  display:flex !important;
+  flex-direction:column !important;
+  gap:9px !important;
+  background:transparent !important;
+}
+
+/* Cada registro vira um cartão independente, igual Usuários */
+.admin-page .compact-list > div,
+.admin-page .manage-row,
+.admin-page .category-row,
+.admin-page .product-row,
+.admin-page .table-admin-row,
+.panel .compact-list > div,
+.panel .manage-row {
+  margin:0 !important;
+  padding:11px 12px !important;
+  background:#fff !important;
+  color:#111 !important;
+  border:1px solid #dedede !important;
+  border-radius:11px !important;
+  box-shadow:0 2px 7px rgba(0,0,0,.06) !important;
+  overflow:hidden;
+}
+
+/* Remove linhas contínuas que faziam os itens parecerem uma tabela única */
+.admin-page .compact-list > div + div,
+.admin-page .manage-row + .manage-row,
+.panel .compact-list > div + div,
+.panel .manage-row + .manage-row {
+  border-top:1px solid #dedede !important;
+}
+
+/* Mesas cadastradas seguem exatamente a mesma separação */
+.admin-page .table-admin-row,
+.admin-page [data-admin-table-row],
+.panel .table-admin-row {
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+}
+
+/* Categorias e produtos também separados */
+.admin-page .category-row,
+.admin-page .product-row,
+.panel .category-row,
+.panel .product-row {
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+}
+
+/* Conteúdo principal dos cartões */
+.admin-page .compact-list > div > div:first-child,
+.admin-page .manage-row > div:first-child,
+.panel .compact-list > div > div:first-child,
+.panel .manage-row > div:first-child {
+  min-width:0;
+}
+
+/* Botões ficam agrupados à direita como na tela de usuários */
+.admin-page .row-actions,
+.admin-page .user-actions,
+.panel .row-actions,
+.panel .user-actions {
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+  justify-content:flex-end;
+}
+
+/* Mesas em uso continuam vermelhas, mas separadas individualmente */
+.admin-page .occupied-row,
+.panel .occupied-row {
+  margin:0 0 9px 0 !important;
+  border-radius:11px !important;
+  background:linear-gradient(135deg,#7f1d1d,#b91c1c) !important;
+  color:#fff !important;
+}
+.admin-page .occupied-row *,
+.panel .occupied-row * {
+  color:#fff !important;
+}
+
+/* Finalizadas também com separação consistente */
+.admin-page .finalized-list,
+.panel .finalized-list {
+  display:flex;
+  flex-direction:column;
+  gap:9px;
+}
+.admin-page .finalized-row,
+.panel .finalized-row {
+  margin:0 !important;
+  border-radius:11px !important;
+}
+
+/* Mobile: ações descem sem esmagar nome/valor */
+@media(max-width:680px){
+  .admin-page .manage-row,
+  .admin-page .category-row,
+  .admin-page .product-row,
+  .admin-page .table-admin-row,
+  .panel .manage-row {
+    align-items:flex-start;
+    flex-direction:column;
+  }
+  .admin-page .row-actions,
+  .admin-page .user-actions,
+  .panel .row-actions,
+  .panel .user-actions {
+    width:100%;
+    justify-content:flex-start;
+  }
+}
+
+
+/* v1.7 — produtos admin mobile + preços por categoria */
+.variant-price-fields{display:grid;grid-template-columns:1fr 1fr;gap:10px}.variant-price-fields>div{display:grid;gap:6px}.variant-price-fields small{grid-column:1/-1;color:#666!important}.products-admin .manage-row{background:#fff!important;color:#111!important;min-height:70px}.products-admin .manage-row span,.products-admin .manage-row b{color:#111!important}.products-admin .manage-row small{color:#666!important}.products-admin .row-actions button{color:#111!important;background:#fff!important}
+@media(max-width:680px){
+  .products-admin{max-height:none!important;overflow:visible!important;display:flex!important;flex-direction:column!important;gap:10px!important}
+  .products-admin .manage-row{display:flex!important;flex-direction:column!important;align-items:stretch!important;justify-content:flex-start!important;min-height:94px!important;height:auto!important;padding:14px!important;overflow:visible!important}
+  .products-admin .manage-row>span{display:block!important;width:100%!important;min-height:38px!important}
+  .products-admin .manage-row b{display:block!important;font-size:16px!important;line-height:1.25!important}
+  .products-admin .manage-row small{display:block!important;margin-top:5px!important;line-height:1.3!important;white-space:normal!important}
+  .products-admin .row-actions{width:100%!important;display:flex!important;margin-top:10px!important}
+  .products-admin .row-actions button{width:100%!important;min-height:42px!important}
+  .variant-price-fields{grid-template-columns:1fr!important}
+  .variant-price-fields small{grid-column:auto}
+}
+
+
+/* v1.9 — ações administrativas na comanda */
+.item-price-actions{display:flex;flex-direction:column;align-items:flex-end;gap:7px}
+.item-remove-btn{border:1px solid #b42318!important;background:#fff!important;color:#b42318!important;padding:6px 9px!important;border-radius:8px!important;font-size:12px!important;min-height:auto!important}
+.order-totals{border-top:1px solid #ddd;margin-top:12px;padding-top:10px}
+.order-totals>div,.payment-summary,.close-financial-summary>div{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:5px 0}
+.admin-order-actions{margin-top:14px;border-top:1px solid #ddd;padding-top:14px}
+.admin-order-actions h4{margin:0 0 10px;color:#111}
+.admin-action-buttons{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:10px}
+.admin-action-buttons button{min-height:42px}
+.payments-box{background:#f6f6f6;border:1px solid #ddd;border-radius:10px;padding:10px;margin:10px 0;color:#111}
+.payment-row{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:8px 0;border-bottom:1px solid #ddd}
+.payment-row button{border:0;background:transparent;color:#b42318!important;padding:4px!important}
+.payment-status{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:14px}
+.payment-status span{background:#f3f3f3;color:#111;padding:9px;border-radius:8px;text-align:center}
+.admin-small-modal{max-width:460px}
+.admin-small-modal p,.admin-small-modal label,.admin-small-modal small,.admin-small-modal h3{color:#111}
+.close-financial-summary{margin-top:10px}
+@media(max-width:680px){
+  .item-admin-row{align-items:flex-start!important}
+  .item-price-actions{width:100%;align-items:stretch;margin-top:8px}
+  .item-price-actions>b{text-align:right}
+  .item-remove-btn{width:100%}
+  .admin-action-buttons{grid-template-columns:1fr}
+  .payment-status{grid-template-columns:1fr}
+}
+
+
+/* v1.10 — desconto em mesas finalizadas */
+.finalized-discount{display:block;color:#8a4b00!important;font-weight:700;margin-bottom:4px}
+
+
+/* v1.11 — pagamento rápido, reimpressão e última impressora */
+.quick-payment-grid{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin:8px 0 16px}
+.quick-payment-grid button{min-height:52px;border:1px solid #d58a19;background:#21180d;color:#ffd27a;border-radius:10px;font-weight:800;font-size:15px}
+.partial-payment{border-top:1px solid #ddd;padding-top:14px;display:flex;flex-direction:column;gap:8px}
+.payment-method-pills{display:grid;grid-template-columns:repeat(4,1fr);gap:6px}
+.payment-method-pills button{border:1px solid #bbb;background:#fff;color:#111;border-radius:8px;padding:9px 6px}
+.payment-method-pills button.active{background:#21180d;color:#ffd27a;border-color:#d58a19}
+.payment-amount-row{display:grid;grid-template-columns:1fr auto;gap:8px;align-items:center}
+.finalized-actions{display:flex;align-items:center;justify-content:flex-end}
+.reprint-btn{white-space:nowrap;min-height:38px}
+@media(max-width:680px){.quick-payment-grid{grid-template-columns:1fr 1fr}.payment-method-pills{grid-template-columns:1fr 1fr}.payment-amount-row{grid-template-columns:1fr}.finalized-actions{width:100%}.reprint-btn{width:100%}}
+@media(max-width:620px){}
+
+
+/* v1.13 — histórico diário de movimento */
+.movement-panel{display:flex;flex-direction:column;gap:16px}
+.movement-heading,.movement-report-top{display:flex;align-items:center;justify-content:space-between;gap:14px}
+.movement-heading h3,.movement-heading p,.movement-report-top h3{margin:0}
+.movement-heading p{margin-top:4px}
+.movement-days{display:flex;flex-direction:column;gap:10px}
+.movement-day-card{width:100%;display:flex;align-items:center;justify-content:space-between;gap:16px;text-align:left;background:#fff!important;color:#111!important;border:1px solid #dedbd5!important;border-radius:14px!important;padding:15px!important;min-height:74px}
+.movement-day-card>span{display:flex;flex-direction:column;gap:4px}
+.movement-day-card small{color:#6b6259!important}
+.movement-day-values{align-items:flex-end}
+.movement-day-values strong{font-size:19px;color:#8b5600!important}
+.movement-day-values small{color:#8a4b00!important}
+.movement-summary-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.movement-summary-grid>div{background:#fff;color:#111;border:1px solid #dedbd5;border-radius:13px;padding:13px;display:flex;flex-direction:column;gap:5px}
+.movement-summary-grid small{color:#6b6259}
+.movement-summary-grid b{font-size:18px}
+.payment-day-summary{background:#fff;color:#111;border-radius:14px;border:1px solid #dedbd5;padding:14px}
+.payment-day-summary h4{margin:0 0 8px}
+.payment-day-summary>div{display:flex;justify-content:space-between;padding:7px 0;border-top:1px solid #ece8e2}
+.movement-orders{display:flex;flex-direction:column;gap:12px}
+.movement-order-card{background:#fff;color:#111;border:1px solid #dedbd5;border-radius:15px;padding:14px}
+.movement-order-head{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;padding-bottom:9px;border-bottom:1px solid #e7e2dc}
+.movement-order-head>span{display:flex;flex-direction:column;gap:3px}
+.movement-order-head small{color:#6b6259}
+.movement-order-head strong{font-size:18px;color:#8b5600}
+.movement-items{padding:7px 0}
+.movement-items>div{display:grid;grid-template-columns:1fr auto;gap:3px 12px;padding:6px 0}
+.movement-items>div small{grid-column:1/-1;color:#6b6259}
+.movement-order-finance{border-top:1px solid #e7e2dc;padding-top:8px;display:flex;flex-wrap:wrap;justify-content:flex-end;gap:8px 18px}
+.movement-order-finance span{display:flex;gap:6px}
+.movement-order-payments{margin-top:9px;padding-top:8px;border-top:1px dashed #d7d0c7;display:flex;flex-wrap:wrap;gap:6px 15px}
+.movement-order-payments small{width:100%;color:#6b6259}
+.movement-grand-total{background:#17130f;border:1px solid #b37a22;color:#fff;border-radius:15px;padding:15px;display:flex;flex-direction:column;gap:8px}
+.movement-grand-total>span{display:flex;justify-content:space-between;gap:15px}
+.movement-grand-total strong{font-size:22px;color:#e7b14b}
+@media(max-width:760px){
+  .movement-heading,.movement-report-top{align-items:stretch;flex-direction:column}
+  .movement-summary-grid{grid-template-columns:1fr 1fr}
+  .movement-day-card{align-items:flex-start;flex-direction:column}
+  .movement-day-values{width:100%;align-items:flex-start}
+}
+@media(max-width:430px){.movement-summary-grid{grid-template-columns:1fr}.movement-order-finance{justify-content:flex-start}}
+
+
+/* v1.14 — pagamento rápido sem pagamento parcial */
+.payment-backdrop{
+  overflow-y:auto;
+  overscroll-behavior:contain;
+  -webkit-overflow-scrolling:touch;
+  align-items:start;
+  padding-top:max(18px,env(safe-area-inset-top));
+  padding-bottom:max(18px,env(safe-area-inset-bottom));
+}
+.payment-modal{
+  margin:auto;
+  max-height:calc(100vh - 36px);
+  overflow-y:auto;
+  overscroll-behavior:contain;
+  -webkit-overflow-scrolling:touch;
+}
+@supports (height:100dvh){
+  .payment-modal{max-height:calc(100dvh - 36px)}
+}
+.payment-modal-head{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+}
+.payment-modal-head h3{margin:0}
+.modal-close-x{
+  width:44px;
+  height:44px;
+  min-width:44px;
+  padding:0;
+  display:grid;
+  place-items:center;
+  border:1px solid #d6d3d1;
+  border-radius:12px;
+  background:#fff;
+  color:#111;
+  font-size:30px;
+  line-height:1;
+}
+.payment-complete-note{
+  background:#f5f5f4;
+  color:#292524!important;
+  border:1px solid #e7e5e4;
+  border-radius:12px;
+  padding:12px;
+  text-align:center;
+}
+.payment-modal-actions{
+  position:sticky;
+  bottom:-22px;
+  margin-left:-22px;
+  margin-right:-22px;
+  margin-bottom:-22px;
+  padding:12px 22px calc(22px + env(safe-area-inset-bottom));
+  background:#fff;
+  border-top:1px solid #e7e5e4;
+}
+.payment-modal-actions .secondary{width:100%}
+@media(max-width:680px){
+  .payment-backdrop{
+    place-items:start center;
+    padding-left:12px;
+    padding-right:12px;
+  }
+  .payment-modal{
+    width:100%;
+    max-height:calc(100vh - 24px);
+    border-radius:18px;
+    padding:18px;
+  }
+  @supports (height:100dvh){
+    .payment-modal{max-height:calc(100dvh - 24px)}
+  }
+  .payment-modal-actions{
+    bottom:-18px;
+    margin-left:-18px;
+    margin-right:-18px;
+    margin-bottom:-18px;
+    padding-left:18px;
+    padding-right:18px;
+    padding-bottom:calc(18px + env(safe-area-inset-bottom));
+  }
+}
+
+
+/* v1.15 — botão de reimpressão compacto no mobile */
+.finalized-reprint,
+.finalized-card button{
+  white-space:nowrap;
+}
+@media(max-width:480px){
+  .finalized-reprint{
+    width:auto;
+    max-width:100%;
+    padding-left:14px;
+    padding-right:14px;
+    font-size:15px;
+  }
+}
+
+
+/* v1.16 — encerramento guiado: pagamento -> confirmação -> resumo */
+.payment-modal-head>div:first-child{min-width:0}
+.payment-modal-head p{margin:4px 0 0;color:#6b6259}
+.payment-choice-grid button.selected{
+  background:#f3c56a!important;
+  color:#17120a!important;
+  border-color:#f0a928!important;
+  box-shadow:inset 0 0 0 2px #8a5400;
+}
+.selected-payment-confirm{
+  margin-top:14px;
+  border:1px solid #e7c36f;
+  background:#fff9e8;
+  color:#17120a;
+  border-radius:14px;
+  padding:14px;
+}
+.selected-payment-confirm p{margin:0 0 10px}
+.selected-payment-confirm .primary{min-height:50px}
+@media(max-width:480px){
+  .payment-choice-grid{grid-template-columns:1fr 1fr}
+  .payment-choice-grid button{min-height:58px}
+}
+
+
+/* v1.17 — cardápio digital público + QR Code */
+.header-menu-btn{background:transparent!important;border:0!important;color:inherit!important;padding:0!important;font:inherit!important;font-weight:700!important}
+.menu-qr-modal{max-width:470px;text-align:center}
+.menu-qr-head{display:flex;align-items:flex-start;justify-content:space-between;text-align:left;gap:12px}
+.menu-qr-head h3{margin:0}
+.menu-qr-head p{margin:4px 0 0;color:#6b6259}
+.menu-qr-box{margin:16px auto;background:#fff;border:1px solid #e7e5e4;border-radius:18px;padding:14px;display:grid;place-items:center;min-height:260px}
+.menu-qr-box img{width:min(100%,330px);height:auto;display:block}
+.qr-loading{color:#57534e}
+.menu-qr-help{color:#57534e;line-height:1.45}
+.menu-link-preview{font-size:12px;word-break:break-all;background:#f5f5f4;color:#292524;border-radius:10px;padding:10px}
+
+.digital-menu-page{min-height:100vh;background:#100e0c;color:#f8f5ee;padding-bottom:24px}
+.digital-menu-header{display:flex;align-items:center;gap:16px;padding:18px max(16px,calc((100% - 900px)/2));border-bottom:1px solid #3b2c18;background:#15120e}
+.digital-menu-header img{width:130px;max-height:82px;object-fit:contain;background:#fff;border-radius:12px;padding:8px}
+.digital-menu-header h1{margin:0;color:#f0b143;font-size:clamp(23px,4vw,34px)}
+.digital-menu-header p{margin:5px 0 0;color:#d7d0c8}
+.digital-menu-live{max-width:900px;margin:14px auto 0;padding:0 16px;color:#d6cfc5;font-size:13px;display:flex;align-items:center;gap:7px;flex-wrap:wrap}
+.live-dot{width:9px;height:9px;border-radius:50%;background:#53b66f;box-shadow:0 0 0 4px rgba(83,182,111,.12)}
+.digital-menu-content{max-width:900px;margin:0 auto;padding:8px 16px 28px}
+.digital-category{margin-top:22px}
+.digital-category h2{margin:0 0 10px;color:#f0b143;border-bottom:1px solid #4b351a;padding-bottom:8px;font-size:22px}
+.digital-product-list{display:grid;gap:10px}
+.digital-product{background:#fff;color:#151515;border:1px solid #dcc596;border-radius:15px;padding:14px}
+.digital-product-main{display:flex;align-items:flex-start;justify-content:space-between;gap:14px}
+.digital-product h3{margin:0;font-size:18px;color:#17120c}
+.digital-product p{margin:5px 0 0;color:#6b6259;font-size:14px}
+.digital-product-main strong{white-space:nowrap;color:#8a5700;font-size:18px}
+.digital-variants{margin-top:10px;border-top:1px solid #eee6da;padding-top:6px}
+.digital-variants>div{display:flex;justify-content:space-between;gap:12px;padding:5px 0}
+.digital-variants span{color:#514a42}
+.digital-variants b{color:#8a5700}
+.digital-menu-empty{max-width:900px;margin:24px auto;background:#fff;color:#292524;border-radius:14px;padding:20px;text-align:center}
+.digital-menu-footer{max-width:900px;margin:0 auto;border-top:1px solid #3b2c18;padding:18px 16px;text-align:center;color:#b9afa3}
+.digital-menu-footer .pericles-signature{margin-top:8px}
+@media(max-width:620px){
+  .digital-menu-header{align-items:flex-start;flex-direction:column}
+  .digital-menu-header img{width:120px}
+  .digital-product-main{gap:8px}
+  .menu-qr-modal{width:calc(100% - 24px)}
+}
+
+
+/* v1.19 — rodapé institucional PericlesDev */
+.project-footer{
+  width:min(100%,1100px);margin:24px auto 0;padding:16px 18px 18px;
+  border-top:1px solid rgba(242,160,0,.38);display:flex;align-items:center;
+  justify-content:space-between;gap:22px;color:#d6d3d1;font-size:.78rem;box-sizing:border-box
+}
+.project-copyright{line-height:1.45;text-align:left}
+.project-copyright strong{color:var(--ep-gold,#f2a000)}
+.project-developed{display:flex;align-items:center;justify-content:flex-end;gap:10px;min-width:0;white-space:nowrap}
+.project-developed>span{color:#d6d3d1}
+.project-developed img{display:block;width:min(330px,42vw);height:auto;max-height:72px;object-fit:contain}
+.login>.project-footer{width:min(680px,94vw);margin-top:22px}
+.digital-menu-footer{max-width:none;padding:0 16px 18px;border-top:0}
+.digital-menu-footer .project-footer{margin-top:0}
+@media(max-width:700px){
+  .project-footer{flex-direction:column;justify-content:center;gap:9px;padding:14px 12px 16px}
+  .project-copyright{text-align:center;font-size:.72rem}
+  .project-developed{justify-content:center;white-space:normal}
+  .project-developed>span{font-size:.7rem}
+  .project-developed img{width:min(285px,68vw);max-height:62px}
+}
+@media(max-width:420px){
+  .project-developed{flex-direction:column;gap:3px}
+  .project-developed img{width:min(280px,82vw)}
+}
+
+/* v1.21.1 estoque */
+.stock-current{color:#16803b!important;font-weight:800}.stock-zero{color:#d52d2d!important;font-weight:900}
+.stock-out-product{border-color:#d52d2d!important;opacity:.78}.stock-out-product b{color:#d52d2d}
+.stock-list{display:grid;gap:10px;margin-top:16px}.stock-row{display:flex;justify-content:space-between;align-items:center;gap:12px;background:#fff;color:#111;padding:13px;border-radius:14px}.stock-row>span{display:flex;flex-direction:column;gap:3px}.stock-row-zero{border:1px solid #d52d2d}.stock-editor{display:flex;align-items:center;gap:8px}.stock-editor input{width:90px;background:#fff;color:#111;border:1px solid #bbb}
+@media(max-width:650px){.stock-row{align-items:stretch;flex-direction:column}.stock-editor input{width:100%}.stock-editor{display:grid;grid-template-columns:1fr auto}}
+
+.stock-new-product-note{display:block;margin-top:-4px;color:#b9b9b9;font-size:.84rem}
+
+
+/* v1.22.1 local: pagamentos divididos, backup e servidor de impressão */
+.split-payment-list{display:grid;gap:8px;margin:12px 0;padding:12px;border-radius:14px;background:#151515}.split-payment-list div{display:flex;justify-content:space-between;gap:14px}.selected-payment-confirm label{display:block;margin:10px 0 6px;font-weight:700}.selected-payment-confirm small{display:block;margin-top:8px;color:#c9c9c9}.backup-panel{display:grid;gap:18px}.backup-head{display:flex;justify-content:space-between;align-items:flex-start;gap:16px}.backup-now-btn{min-width:190px}.backup-form{display:grid;gap:16px}.backup-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}.backup-grid label{display:grid;gap:7px;font-weight:700}.backup-grid input,.backup-grid select,.backup-path-row input{background:#fff;color:#111;border:1px solid #ddd;border-radius:12px;padding:12px}.backup-path-row{display:flex;gap:10px;align-items:center;margin-top:7px}.backup-path-row input{flex:1}.backup-weekdays{display:flex;flex-wrap:wrap;gap:8px}.backup-weekdays label{display:flex;align-items:center;gap:6px;padding:9px 12px;border:1px solid #5a4a2c;border-radius:999px;cursor:pointer}.backup-weekdays label.selected{background:#c99025;color:#111}.backup-weekdays input{display:none}.backup-actions{display:flex;justify-content:flex-end}.backup-status{display:grid;gap:5px;padding:14px;border-radius:14px;background:#151515;border:1px solid #333}.backup-status.success{border-color:#377c45}.backup-status.error{border-color:#a33}.backup-status small{overflow-wrap:anywhere;color:#c7c7c7}@media(max-width:760px){.backup-head{display:grid}.backup-now-btn{width:100%}.backup-grid{grid-template-columns:1fr}.backup-path-row{display:grid}.backup-path-row button{width:100%}}
