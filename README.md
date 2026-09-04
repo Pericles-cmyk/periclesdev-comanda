@@ -2,6 +2,12 @@
 
 Sistema web de **comandas, mesas e atendimento para restaurantes**, projetado para operar em **rede local (LAN)**. Um notebook funciona como servidor do estabelecimento e celulares/tablets conectados à mesma rede acessam o sistema em tempo real.
 
+## 🖥️ Demonstração
+
+![PericlesDev Comanda - Sistema de gestão para restaurantes](docs/screenshots/periclesdev-comanda-showcase.png)
+
+Interface demonstrativa com identidade e dados fictícios para apresentação do projeto.
+
 > Projeto de portfólio / base demonstrativa. Não contém dados, identidade visual, usuários ou backups de clientes reais.
 
 ## Principais recursos
