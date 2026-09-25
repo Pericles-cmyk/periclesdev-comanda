@@ -2,6 +2,51 @@
 
 > **INSTRUÇÃO AO AGENT:** este arquivo é a fonte oficial do plano de migração do projeto. Antes de alterar código, leia o arquivo inteiro. Execute as fases em ordem. Não avance para a fase seguinte antes de cumprir os critérios de aceite da fase atual. Ao concluir cada fase, registre o ponto de parada neste arquivo conforme a seção "PONTO DE PARADA AO FINAL DE CADA FASE".
 
+## INTERFACE OFICIAL — DESKTOP E MOBILE
+
+A interface responsiva implementada no projeto é parte do escopo oficial do Comanda Web e deve ser preservada durante todas as fases deste plano.
+
+### Desktop
+
+A experiência desktop deve seguir estes princípios:
+
+- sidebar fixa à esquerda;
+- navegação principal por Mesas, Histórico, Cardápio, Estoque, Usuários, Impressora e Backup;
+- cabeçalho superior compacto com usuário e status do sistema;
+- dashboard de mesas com indicadores de mesas livres, mesas em uso e valor total das comandas abertas;
+- cards de mesas verdes para livres e vermelhos para ocupados;
+- tela de comanda em duas áreas: cardápio/produtos e resumo persistente da comanda;
+- identidade visual clara, quente e profissional, usando marrom, dourado, branco, verde e vermelho.
+
+### Mobile
+
+A experiência mobile é prioritária e deve seguir estes princípios:
+
+- header compacto com estabelecimento/usuário;
+- navegação inferior fixa;
+- tela de mesas em duas colunas;
+- filtros Todas, Livres e Em uso;
+- cards grandes e apropriados para toque;
+- cardápio em duas colunas;
+- categorias em navegação horizontal;
+- botão fixo de acesso à comanda;
+- comanda exibida como bottom sheet;
+- modais e ações dimensionados para toque;
+- fluxo rápido: Mesa → Categoria → Produto → Quantidade → Adicionar → Comanda → Pagamento.
+
+### Regra de preservação
+
+As fases seguintes podem evoluir componentes, dados e integrações, mas não devem voltar para a antiga navegação horizontal nem remover o comportamento responsivo definido acima sem uma decisão explícita de produto.
+
+Arquivos principais da implementação atual:
+
+```text
+src/App.jsx
+src/styles.css
+```
+
+---
+
 ## Objetivo geral
 
 Transformar o projeto atual `periclesdev-comanda` em um sistema reutilizável para múltiplos estabelecimentos, 100% online, com foco principal em uso no MOBILE, sem depender de notebook/PC atuando como servidor local.
