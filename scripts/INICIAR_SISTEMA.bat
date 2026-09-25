@@ -1,6 +1,6 @@
 @echo off
 cd /d "%~dp0.."
-echo Iniciando banco local do Comanda Local...
+echo Iniciando banco local do ComandaWeb...
 docker compose up -d
 if errorlevel 1 (
   echo.
@@ -13,7 +13,7 @@ timeout /t 4 /nobreak >nul
 set "DATABASE_URL=postgres://comanda:comanda_local_2026@localhost:5433/comanda_local"
 set "TZ=America/Recife"
 echo Iniciando servidor local e tempo real...
-start "Comanda Local Local Server - NAO FECHAR" cmd /k "set DATABASE_URL=%DATABASE_URL%&& set TZ=%TZ%&& npm start"
+start "ComandaWeb Local Server - NAO FECHAR" cmd /k "set DATABASE_URL=%DATABASE_URL%&& set TZ=%TZ%&& npm start"
 timeout /t 3 /nobreak >nul
 echo.
 echo Sistema: http://localhost:3000

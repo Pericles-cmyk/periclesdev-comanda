@@ -2,7 +2,7 @@
 chcp 65001 >nul
 cd /d "%~dp0.."
 echo ===============================================
-echo  Comanda Local - Instalacao local
+echo  ComandaWeb - Instalacao local
  echo ===============================================
 echo.
 where node >nul 2>&1 || (echo ERRO: Node.js nao encontrado. Instale o Node.js LTS e execute novamente.& pause & exit /b 1)

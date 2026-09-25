@@ -49,7 +49,7 @@ src/styles.css
 
 ## Objetivo geral
 
-Transformar o projeto atual `periclesdev-comanda` em um sistema reutilizável para múltiplos estabelecimentos, 100% online, com foco principal em uso no MOBILE, sem depender de notebook/PC atuando como servidor local.
+Transformar o projeto atual `ComandaWeb` em um sistema reutilizável para múltiplos estabelecimentos, 100% online, com foco principal em uso no MOBILE, sem depender de notebook/PC atuando como servidor local.
 
 A aplicação deve continuar usando a base React + Vite + Supabase já existente, mas deverá:
 
@@ -441,16 +441,10 @@ Adicionar ao projeto:
 
 Inicializar projeto Capacitor.
 
-Definir package id, por exemplo:
+Definir package id oficial:
 
 ```text
-com.periclesdev.comandaweb
-```
-
-ou:
-
-```text
-br.com.periclesdev.comandaweb
+com.comandaweb.app
 ```
 
 ## 3.2 Criar projeto Android

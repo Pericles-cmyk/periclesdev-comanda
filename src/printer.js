@@ -1,8 +1,10 @@
 let device=null;
 let characteristic=null;
-const REMEMBERED_NAME_KEY='periclesdevcomanda.lastPrinterName';
-const REMEMBERED_ID_KEY='periclesdevcomanda.lastPrinterId';
-function rememberedName(){try{return localStorage.getItem(REMEMBERED_NAME_KEY)||''}catch{return ''}}
+const REMEMBERED_NAME_KEY='comandaweb.lastPrinterName';
+const REMEMBERED_ID_KEY='comandaweb.lastPrinterId';
+const LEGACY_REMEMBERED_NAME_KEY='periclesdevcomanda.lastPrinterName';
+const LEGACY_REMEMBERED_ID_KEY='periclesdevcomanda.lastPrinterId';
+function rememberedName(){try{return localStorage.getItem(REMEMBERED_NAME_KEY)||localStorage.getItem(LEGACY_REMEMBERED_NAME_KEY)||''}catch{return ''}}
 function isIOS(){
   const ua=navigator?.userAgent||'';
   return /iPad|iPhone|iPod/.test(ua)||(navigator?.platform==='MacIntel'&&navigator?.maxTouchPoints>1);
@@ -16,6 +18,8 @@ function rememberPrinter(selected,name){
     const id=selected?.id||'';
     localStorage.setItem(REMEMBERED_NAME_KEY,name);
     if(id)localStorage.setItem(REMEMBERED_ID_KEY,id);
+    localStorage.removeItem(LEGACY_REMEMBERED_NAME_KEY);
+    localStorage.removeItem(LEGACY_REMEMBERED_ID_KEY);
   }catch{}
 }
 let state={connected:false,name:'',rememberedName:rememberedName(),mode:'none'};
@@ -94,7 +98,7 @@ export async function connectPreviousPrinter(){
   if(typeof navigator.bluetooth.getDevices!=='function')throw new Error('Este navegador não permite recuperar a impressora anterior automaticamente. Use “Escolher impressora”.');
   const devices=await navigator.bluetooth.getDevices();
   if(!devices?.length)throw new Error('Nenhuma impressora Bluetooth autorizada anteriormente foi encontrada neste navegador.');
-  let savedId='';try{savedId=localStorage.getItem(REMEMBERED_ID_KEY)||''}catch{}
+  let savedId='';try{savedId=localStorage.getItem(REMEMBERED_ID_KEY)||localStorage.getItem(LEGACY_REMEMBERED_ID_KEY)||''}catch{}
   const savedName=rememberedName();
   const previous=devices.find(d=>savedId&&d.id===savedId)||devices.find(d=>savedName&&d.name===savedName)||devices[0];
   return connectDevice(previous);

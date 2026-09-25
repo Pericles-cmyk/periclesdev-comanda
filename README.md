@@ -1,10 +1,10 @@
-# PericlesDev Comanda
+# ComandaWeb
 
 Sistema web de **comandas, mesas e atendimento para restaurantes**, projetado para operar em **rede local (LAN)**. Um notebook funciona como servidor do estabelecimento e celulares/tablets conectados à mesma rede acessam o sistema em tempo real.
 
 ## 🖥️ Demonstração
 
-![PericlesDev Comanda - Sistema de gestão para restaurantes](docs/screenshots/periclesdev-comanda-showcase.png)
+![ComandaWeb - Sistema de gestão para restaurantes](docs/screenshots/periclesdev-comanda-showcase.png)
 
 Interface demonstrativa com identidade e dados fictícios para apresentação do projeto.
 
@@ -149,7 +149,7 @@ A impressão direta usa Web Bluetooth e depende do navegador/dispositivo. O proj
 
 ## Autor
 
-**PericlesDev** — desenvolvimento de sistemas web e soluções locais para negócios.
+**ComandaWeb by PericlesDev** — desenvolvimento de sistemas web e soluções locais para negócios.
 
 ## Licença
 

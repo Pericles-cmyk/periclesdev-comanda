@@ -1,15 +1,16 @@
 import {io} from 'socket.io-client';
 
 const API='/api';
-const SESSION_KEY='periclesdev_comanda_local_session';
+const SESSION_KEY='comandaweb_local_session';
+const LEGACY_SESSION_KEY='periclesdev_comanda_local_session';
 const authListeners=new Set();
 let socket=null;
 
 function readSession(){
-  try{return JSON.parse(localStorage.getItem(SESSION_KEY)||'null')}catch{return null}
+  try{return JSON.parse(localStorage.getItem(SESSION_KEY)||localStorage.getItem(LEGACY_SESSION_KEY)||'null')}catch{return null}
 }
 function writeSession(session){
-  try{if(session)localStorage.setItem(SESSION_KEY,JSON.stringify(session));else localStorage.removeItem(SESSION_KEY)}catch{}
+  try{if(session){localStorage.setItem(SESSION_KEY,JSON.stringify(session));localStorage.removeItem(LEGACY_SESSION_KEY)}else{localStorage.removeItem(SESSION_KEY);localStorage.removeItem(LEGACY_SESSION_KEY)}}catch{}
   for(const fn of authListeners)fn(session?'SIGNED_IN':'SIGNED_OUT',session);
 }
 async function request(path,{method='GET',body,auth=true}={}){

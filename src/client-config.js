@@ -1,6 +1,6 @@
 // Configuração simples por cliente.
 // Edite apenas quando o cardápio do cliente usar regras especiais de variação/estoque.
-export const LOGIN_DOMAIN='comanda.local';
+export const LOGIN_DOMAIN='comandaweb.local';
 
 export const VARIANT_CATEGORY_RULES={
   'Almoço':['Meia','Inteira'],
