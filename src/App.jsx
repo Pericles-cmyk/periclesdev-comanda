@@ -2,7 +2,7 @@ import clientLogo from './assets/logo-cliente.svg';
 import {LOGIN_DOMAIN,VARIANT_CATEGORY_RULES,STOCK_CATEGORY_NAMES} from './client-config';
 import periclesDevLogo from './assets/periclesdev-assinatura.png';
 import {useEffect,useMemo,useState} from 'react';
-import {Routes,Route,Navigate,useNavigate,useParams,Link} from 'react-router-dom';
+import {Routes,Route,Navigate,useNavigate,useParams,useLocation,Link} from 'react-router-dom';
 import {supabase,localApi} from './supabase';
 import QRCode from 'qrcode';
 import {connectBluetoothPrinter,connectPreviousPrinter,getPrinterState,printOrderReceipt,printTestReceipt,printDailyMovementReport,disconnectPrinter} from './printer';
@@ -66,6 +66,7 @@ function Login(){
 function Shell({children}){
   const profile=useProfile();
   const nav=useNavigate();
+  const location=useLocation();
   const[showMenuQr,setShowMenuQr]=useState(false);
   const[qrDataUrl,setQrDataUrl]=useState('');
   const[qrBusy,setQrBusy]=useState(false);
@@ -75,6 +76,22 @@ function Shell({children}){
     const host=window.location.host;
     return `${protocol}//${host}/cardapio`;
   })();
+
+  const adminTab=new URLSearchParams(location.search).get('tab')||'dashboard';
+  const navItems=[
+    {key:'tables',label:'Mesas',icon:'▦',to:'/mesas'},
+    ...(profile?.role==='admin'?[
+      {key:'history',label:'Histórico',icon:'◷',to:'/admin?tab=history'},
+      {key:'menu',label:'Cardápio',icon:'♨',to:'/admin?tab=menu'},
+      {key:'stock',label:'Estoque',icon:'◇',to:'/admin?tab=stock'},
+      {key:'users',label:'Usuários',icon:'♙',to:'/admin?tab=users'},
+      {key:'printer',label:'Impressora',icon:'▣',to:'/admin?tab=printer'},
+      {key:'backup',label:'Backup',icon:'☁',to:'/admin?tab=backup'}
+    ]:[])
+  ];
+  const isActive=item=>item.key==='tables'
+    ?location.pathname==='/mesas'||location.pathname.startsWith('/comanda/')
+    :location.pathname==='/admin'&&adminTab===item.key;
 
   async function out(){await supabase.auth.signOut();nav('/login')}
   async function openMenuQr(){
@@ -89,23 +106,47 @@ function Shell({children}){
     finally{setQrBusy(false);}
   }
 
-  return <><header className="app-header">
-    <div className="app-brand">
-      <img src={clientLogo} alt="Logo do cliente" className="app-brand-logo" />
-      <div className="app-user"><small>{profile?.full_name||'Usuário'} • {roleLabel[profile?.role]||''}</small></div>
-    </div>
-    <nav><Link to="/mesas">Mesas</Link><button type="button" className="header-menu-btn" onClick={openMenuQr}>Cardápio digital</button>{profile?.role==='admin'&&<Link to="/admin">Painel Admin</Link>}<button onClick={out}>Sair</button></nav>
-  </header><main>{children}</main><PericlesSignature />
-  {showMenuQr&&<div className="modal-backdrop menu-qr-backdrop" onClick={()=>setShowMenuQr(false)}>
-    <div className="modal menu-qr-modal" onClick={e=>e.stopPropagation()}>
-      <div className="menu-qr-head"><div><h3>Cardápio digital</h3><p>Mostre este QR Code para o cliente.</p></div><button type="button" className="modal-close-x" aria-label="Fechar" onClick={()=>setShowMenuQr(false)}>×</button></div>
-      <div className="menu-qr-box">{qrBusy?<div className="qr-loading">Gerando QR Code...</div>:qrDataUrl?<img src={qrDataUrl} alt="QR Code do cardápio digital"/>:<div className="qr-loading">QR Code indisponível.</div>}</div>
-      <p className="menu-qr-help">O cliente não precisa fazer login. O cardápio acompanha automaticamente as alterações de produtos, preços e disponibilidade.</p>
-      <div className="menu-link-preview">{menuUrl}</div>
-      <div className="modal-actions"><button type="button" className="secondary" onClick={()=>setShowMenuQr(false)}>Fechar</button><button type="button" className="primary" onClick={()=>window.open(/^https?:\/\//i.test(menuUrl)?menuUrl:`http://${menuUrl.replace(/^\/+/, '')}`,'_blank','noopener,noreferrer')}>Abrir cardápio</button></div>
-    </div>
-  </div>}
-  </>;
+  return <div className="app-shell">
+    <aside className="desktop-sidebar">
+      <div className="sidebar-brand">
+        <img src={clientLogo} alt="Logo do estabelecimento" />
+        <div><b>Comanda Web</b><small>Gestão de atendimento</small></div>
+      </div>
+      <nav className="sidebar-nav">{navItems.map(item=><Link key={item.key} className={isActive(item)?'active':''} to={item.to}><span className="nav-icon">{item.icon}</span><span>{item.label}</span></Link>)}</nav>
+      <div className="sidebar-spacer"/>
+      <button type="button" className="sidebar-action" onClick={openMenuQr}><span className="nav-icon">⌁</span><span>Cardápio digital</span></button>
+      <button type="button" className="sidebar-action logout" onClick={out}><span className="nav-icon">↪</span><span>Sair</span></button>
+    </aside>
+
+    <section className="app-stage">
+      <header className="app-topbar">
+        <div className="mobile-brand"><img src={clientLogo} alt="Logo do estabelecimento"/><span>Comanda Web</span></div>
+        <div className="topbar-user">
+          <span className="user-avatar">●</span>
+          <span><b>{profile?.full_name||'Usuário'}</b><small>{roleLabel[profile?.role]||''}</small></span>
+        </div>
+        <div className="topbar-status"><span className="online-dot"/>Sistema online</div>
+      </header>
+      <main className="app-main">{children}</main>
+      <PericlesSignature />
+    </section>
+
+    <nav className="mobile-bottom-nav">
+      <Link className={location.pathname==='/mesas'||location.pathname.startsWith('/comanda/')?'active':''} to="/mesas"><span>▦</span><small>Mesas</small></Link>
+      <button type="button" className={location.pathname.startsWith('/comanda/')?'active':''} onClick={()=>location.pathname.startsWith('/comanda/')?null:nav('/mesas')}><span>♨</span><small>Cardápio</small></button>
+      {profile?.role==='admin'?<Link className={location.pathname==='/admin'?'active':''} to="/admin"><span>•••</span><small>Mais</small></Link>:<button type="button" onClick={openMenuQr}><span>⌁</span><small>QR</small></button>}
+    </nav>
+
+    {showMenuQr&&<div className="modal-backdrop menu-qr-backdrop" onClick={()=>setShowMenuQr(false)}>
+      <div className="modal menu-qr-modal" onClick={e=>e.stopPropagation()}>
+        <div className="menu-qr-head"><div><h3>Cardápio digital</h3><p>Mostre este QR Code para o cliente.</p></div><button type="button" className="modal-close-x" aria-label="Fechar" onClick={()=>setShowMenuQr(false)}>×</button></div>
+        <div className="menu-qr-box">{qrBusy?<div className="qr-loading">Gerando QR Code...</div>:qrDataUrl?<img src={qrDataUrl} alt="QR Code do cardápio digital"/>:<div className="qr-loading">QR Code indisponível.</div>}</div>
+        <p className="menu-qr-help">O cliente não precisa fazer login. O cardápio acompanha automaticamente as alterações de produtos, preços e disponibilidade.</p>
+        <div className="menu-link-preview">{menuUrl}</div>
+        <div className="modal-actions"><button type="button" className="secondary" onClick={()=>setShowMenuQr(false)}>Fechar</button><button type="button" className="primary" onClick={()=>window.open(/^https?:\/\//i.test(menuUrl)?menuUrl:`http://${menuUrl.replace(/^\/+/, '')}`,'_blank','noopener,noreferrer')}>Abrir cardápio</button></div>
+      </div>
+    </div>}
+  </div>;
 }
 
 function DigitalMenu(){
@@ -177,22 +218,54 @@ function useTablesLive(includeInactive=false){
 }
 
 function Mesas(){
-  const{tables,orders,items,loading,totalFor}=useTablesLive(false);const nav=useNavigate();
+  const{tables,orders,items,loading,totalFor}=useTablesLive(false);
+  const nav=useNavigate();
+  const[filter,setFilter]=useState('all');
   async function open(tableId){
     const ex=orders.find(x=>x.table_id===tableId);if(ex)return nav('/comanda/'+ex.id);
     const{data,error}=await supabase.rpc('open_table_order',{p_table_id:tableId});if(error)alert(error.message);else nav('/comanda/'+data);
   }
-  return <Shell><div className="title"><div><h2>Mesas</h2><span>Livres e em uso • atualização em tempo real</span></div><div className="legend"><span className="dot free-dot"/>Livre <span className="dot busy-dot"/>Em uso</div></div>
-    {loading?<div className="empty">Carregando mesas...</div>:<div className="grid">{tables.map(t=>{
-      const existing=orders.find(x=>x.table_id===t.id);const o=existing&&items.some(i=>i.order_id===existing.id)?existing:null;const total=o?totalFor(o.id):0;
-      return <button className={'mesa '+(o?'ocupada':'livre')} key={t.id} onClick={()=>open(t.id)}>
-        <b>Mesa {t.number}</b><span>{o?`Em uso • Comanda #${o.order_number}`:'Livre'}</span>{o&&<strong>{money(total)}</strong>}
-      </button>})}</div>}
+  const rows=tables.map(t=>{
+    const existing=orders.find(x=>x.table_id===t.id);
+    const order=existing&&items.some(i=>i.order_id===existing.id)?existing:null;
+    return{table:t,order,total:order?totalFor(order.id):0};
+  });
+  const freeCount=rows.filter(x=>!x.order).length;
+  const busyCount=rows.filter(x=>x.order).length;
+  const openTotal=rows.reduce((sum,x)=>sum+x.total,0);
+  const visible=rows.filter(x=>filter==='all'||(filter==='free'&&!x.order)||(filter==='busy'&&x.order));
+
+  return <Shell>
+    <section className="tables-page">
+      <div className="tables-heading">
+        <div><h1>Mesas</h1><p>Visão geral do atendimento</p></div>
+        <div className="tables-live-label"><span className="online-dot"/> atualização em tempo real</div>
+      </div>
+
+      <div className="table-stats">
+        <article><span className="stat-icon free">▦</span><div><strong>{freeCount}</strong><span>Mesas livres</span><small>{tables.length?Math.round(freeCount/tables.length*100):0}% disponíveis</small></div></article>
+        <article><span className="stat-icon busy">▦</span><div><strong>{busyCount}</strong><span>Mesas em uso</span><small>{tables.length?Math.round(busyCount/tables.length*100):0}% ocupadas</small></div></article>
+        <article><span className="stat-icon money">●</span><div><strong>{money(openTotal)}</strong><span>Total em comandas abertas</span><small>Em {busyCount} mesa(s)</small></div></article>
+      </div>
+
+      <div className="mobile-table-filter">
+        <button className={filter==='all'?'active':''} onClick={()=>setFilter('all')}>Todas ({tables.length})</button>
+        <button className={filter==='free'?'active free':''} onClick={()=>setFilter('free')}><span className="filter-dot free"/>Livres ({freeCount})</button>
+        <button className={filter==='busy'?'active busy':''} onClick={()=>setFilter('busy')}><span className="filter-dot busy"/>Em uso ({busyCount})</button>
+      </div>
+
+      {loading?<div className="empty">Carregando mesas...</div>:<div className="table-card-grid">{visible.map(({table:t,order:o,total})=>
+        <button className={'table-card '+(o?'busy':'free')} key={t.id} onClick={()=>open(t.id)}>
+          <div className="table-card-top"><b>Mesa {String(t.number).padStart(2,'0')}</b>{o&&<span className="people-indicator">●</span>}</div>
+          <div className="table-illustration"><span className="chair c1"/><span className="chair c2"/><span className="chair c3"/><span className="chair c4"/><span className="round-table">{o?'•••':'✦'}</span></div>
+          {o?<div className="table-order-info"><small>Comanda #{o.order_number}</small><strong>{money(total)}</strong><span className="busy-pill">Em uso</span></div>:<span className="free-pill">Livre</span>}
+        </button>)}</div>}
+    </section>
   </Shell>;
 }
 
 function Comanda(){
-  const{id}=useParams(),nav=useNavigate();const profile=useProfile();
+  const{id}=useParams(),nav=useNavigate();const profile=useProfile();const[mobileOrderOpen,setMobileOrderOpen]=useState(false);
   const[order,setOrder]=useState(null),[items,setItems]=useState([]),[payments,setPayments]=useState([]),[cats,setCats]=useState([]),[prods,setProds]=useState([]),[vars,setVars]=useState([]),[cat,setCat]=useState(null),[busy,setBusy]=useState(false),[adding,setAdding]=useState(null),[qty,setQty]=useState(1),[notes,setNotes]=useState(''),[variantId,setVariantId]=useState(''),[showCloseSummary,setShowCloseSummary]=useState(false),[paymentAmount,setPaymentAmount]=useState('');
   const[cancelItem,setCancelItem]=useState(null),[cancelReason,setCancelReason]=useState('');
   const[showDiscount,setShowDiscount]=useState(false),[discountInput,setDiscountInput]=useState('');
@@ -325,11 +398,14 @@ function Comanda(){
     <div className="title"><div><h2>Mesa {order?.restaurant_tables?.number||'...'}</h2><span>Comanda #{order?.order_number||'...'}</span></div><div className="live-total"><small>Total da comanda</small><b>{money(total)}</b></div></div>
     <div className="cats">{cats.map(c=><button className={cat===c.id?'sel':''} onClick={()=>setCat(c.id)} key={c.id}>{c.name}</button>)}</div>
     <div className="layout"><section><h3>Cardápio</h3><div className="products">{prods.filter(p=>p.category_id===cat).map(p=><button key={p.id} className={p.stock_enabled&&Number(p.stock_quantity||0)<=0?'stock-out-product':''} onClick={()=>beginAdd(p)} disabled={p.stock_enabled&&Number(p.stock_quantity||0)<=0}><b>{p.name}</b><span>{p.base_price!=null?money(p.base_price):'Escolher opção'}</span>{p.stock_enabled?<small className={Number(p.stock_quantity||0)<=0?'stock-zero':'stock-current'}>{Number(p.stock_quantity||0)<=0?'SEM ESTOQUE':`Estoque atual: ${Number(p.stock_quantity||0)}`}</small>:<small>+ adicionar</small>}</button>)}</div></section>
-      <aside><h3>Itens da comanda</h3>{!active.length&&<p className="muted">Nenhum item lançado.</p>}{active.map(i=><div className="item item-admin-row" key={i.id}><span><b>{i.quantity}× {i.product_name_snapshot}</b><small>{i.variant_name_snapshot||''}</small>{i.notes&&<em>Obs.: {i.notes}</em>}</span><div className="item-price-actions"><b>{money(i.quantity*Number(i.unit_price))}</b>{profile?.role==='admin'&&<button type="button" className="item-remove-btn" onClick={()=>{setCancelItem(i);setCancelReason('')}}>Remover item</button>}</div></div>)}
+      <aside className={'order-aside '+(mobileOrderOpen?'mobile-open':'')}><div className="order-aside-head"><div><h3>Itens da comanda</h3><small>Mesa {order?.restaurant_tables?.number} • Comanda #{order?.order_number}</small></div><button type="button" className="order-sheet-close" onClick={()=>setMobileOrderOpen(false)} aria-label="Fechar comanda">×</button></div>{!active.length&&<p className="muted">Nenhum item lançado.</p>}{active.map(i=><div className="item item-admin-row" key={i.id}><span><b>{i.quantity}× {i.product_name_snapshot}</b><small>{i.variant_name_snapshot||''}</small>{i.notes&&<em>Obs.: {i.notes}</em>}</span><div className="item-price-actions"><b>{money(i.quantity*Number(i.unit_price))}</b>{profile?.role==='admin'&&<button type="button" className="item-remove-btn" onClick={()=>{setCancelItem(i);setCancelReason('')}}>Remover item</button>}</div></div>)}
       <div className="order-totals"><div><span>Subtotal</span><b>{money(subtotal)}</b></div>{discount>0&&<div><span>Desconto</span><b>− {money(discount)}</b></div>}<div className="sum"><span>Total</span><b>{money(total)}</b></div></div>
       {profile?.role==='admin'&&<div className="admin-order-actions"><h4>Ações do administrador</h4><div className="admin-action-buttons"><button type="button" className="secondary" onClick={()=>{setDiscountInput(discount?String(discount).replace('.',','):'');setShowDiscount(true)}}>Aplicar desconto</button></div>
       {payments.length>0&&<div className="payments-box"><b>Pagamentos</b>{payments.map(p=><div className="payment-row" key={p.id}><span>{paymentLabels[p.method]||p.method} • {money(p.amount)}</span><button type="button" onClick={()=>removePayment(p)}>Remover</button></div>)}<div className="payment-summary"><span>Pago</span><b>{money(paid)}</b></div><div className="payment-summary"><span>{remaining>0?'Falta':'Saldo'}</span><b>{money(remaining)}</b></div></div>}
       <button className="danger full" onClick={startCloseFlow} disabled={busy||!active.length}>{busy?'Processando...':'Encerrar pedido'}</button></div>}</aside></div>
+    <button type="button" className="mobile-order-trigger" onClick={()=>setMobileOrderOpen(true)}>
+      <span><b>▤ {active.reduce((s,i)=>s+Number(i.quantity||0),0)} itens</b><small>Ver comanda</small></span><strong>{money(total)}</strong>
+    </button>
 
     {adding&&<div className="modal-backdrop" onClick={()=>setAdding(null)}><form className="modal product-modal" onClick={e=>e.stopPropagation()} onSubmit={confirmAdd}><h3>Adicionar {adding.name}</h3>{vars.filter(v=>v.product_id===adding.id).length>0&&<><label>Opção</label><select value={variantId} onChange={e=>setVariantId(e.target.value)}>{vars.filter(v=>v.product_id===adding.id).map(v=><option key={v.id} value={v.id}>{v.name} — {money(v.price)}</option>)}</select></>}<label>Quantidade</label><div className="qty-control"><button type="button" onClick={()=>setQty(q=>Math.max(1,Number(q)-1))}>−</button><input type="number" min="1" max="99" value={qty} onChange={e=>setQty(Math.max(1,Math.min(99,Number(e.target.value)||1)))}/><button type="button" onClick={()=>setQty(q=>Math.min(99,Number(q)+1))}>+</button></div><label>Observação do item (opcional)</label><textarea rows="3" value={notes} onChange={e=>setNotes(e.target.value)} placeholder="Ex.: sem cebola, bem passado..."/><div className="modal-actions"><button type="button" className="secondary" onClick={()=>setAdding(null)}>Cancelar</button><button className="primary" disabled={busy}>Adicionar {qty} item(ns)</button></div></form></div>}
 
@@ -344,7 +420,11 @@ function Comanda(){
 }
 
 function Admin(){
-  const[tab,setTab]=useState('dashboard');const{tables,orders,items,totalFor,reload}=useTablesLive(true);
+  const location=useLocation();
+  const allowedTabs=['dashboard','finalized','history','tables','menu','stock','users','printer','backup'];
+  const requestedTab=new URLSearchParams(location.search).get('tab');
+  const[tab,setTab]=useState(allowedTabs.includes(requestedTab)?requestedTab:'dashboard');
+  useEffect(()=>{if(allowedTabs.includes(requestedTab))setTab(requestedTab);},[requestedTab]);const{tables,orders,items,totalFor,reload}=useTablesLive(true);
   const[categories,setCategories]=useState([]),[products,setProducts]=useState([]),[variantsAdmin,setVariantsAdmin]=useState([]),[users,setUsers]=useState([]),[finalized,setFinalized]=useState([]),[movementDays,setMovementDays]=useState([]),[movementReport,setMovementReport]=useState(null);
   const[msg,setMsg]=useState(''),[busy,setBusy]=useState(false);
   const[newTable,setNewTable]=useState(''),[newCat,setNewCat]=useState(''),[newProduct,setNewProduct]=useState({name:'',category_id:'',price:'',price2:'',stock_quantity:''});
